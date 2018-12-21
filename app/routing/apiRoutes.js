@@ -1,6 +1,6 @@
-const friends = require("../data/friends");
-const path = require('path');
+const friends = require('../data/friends.js');
 
+// Export API routes
 module.exports = (app) => {
 
   app.get('/api/friends', (req, res) => {
@@ -24,7 +24,7 @@ module.exports = (app) => {
       for (var j in responses) {
         diff += Math.abs(friends[i].scores[j] - responses[j]);
       }
-
+      // If lowest difference, record friend match
       if (diff < difference) {
 
         difference = diff;
@@ -35,6 +35,7 @@ module.exports = (app) => {
 
     friends.push(input);
 
+    // Send appropriate response
     res.json({
       status: 'OK',
       matchName: matchName,

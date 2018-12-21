@@ -5,227 +5,296 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>My Buddy Finder - Survey</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-        crossorigin="anonymous">
+    <title>My Avengers Buddy Finder - Survey</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://use.fontawesome.com/61ff38bb78.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <!-- Font Awesome -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
         crossorigin="anonymous">
-
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
 <body>
-    <div class="container">
-        <div class="card mb-5" id="survey">
-            <h2 class="card-header">What do you like?</h2>
+    <header>
+        <nav>
+            <div class="nav-wrapper blue accent-2">
+                <i class="fa fa-facebook-official fa-5x" aria-hidden="true" id=logo-icon></i>
+                <a href="/" class="brand-logo" id="logo">Avengers Buddy Finder</a>
+                <ul class="right hide-on-med-and-down" id="head-nav-links">
 
-            <form class="card-block">
-                <div class="form-group row py-3">
-                    <label for="name" class="col-12 col-md-3 col-form-label"><strong>Name</strong></label>
-                    <div class="col-12 col-md-9">
-                        <input type="text" class="form-control" id="name" required>
-                        <div class="form-control-feedback"></div>
-                    </div>
-                </div>
+                </ul>
+            </div>
+        </nav>
+    </header>
 
-                <div class="form-group row py-3">
-                    <label for="name" class="col-12 col-md-3 col-form-label"><strong>Photo URL</strong></label>
-                    <div class="col-12 col-md-9">
-                        <input type="text" class="form-control" id="photo_url" required>
-                        <div class="form-control-feedback"></div>
-                    </div>
-                </div>
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col s12 z-depth-5 mainpanel">
+                    <div id="mainpanel-content">
+                        <h3>Survey Questions</h3>
+                        <div class="divider"></div>
 
-                <div class="form-group py-3">
-                    <label for="q0" class="col-form-label"><strong>Question 1.</strong> I like a daredevil.</label>
+                        <h5>About You</h5>
 
-                    <select class="form-control" id="q0">
-                        <option selected="selected" disabled>Select an option</option>
-                        <option>1 (strongly disagree)</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5 (strongly agree)</option>
-                    </select>
-                    <div class="form-control-feedback"></div>
-                </div>
+                        <div class="input-field col s10">
+                            <i class="material-icons">account_circle</i>
+                            <h6 class="surveySays">Name (Required)</h6>
 
-                <div class="form-group py-3">
-                    <label for="q1" class="col-form-label"><strong>Question 2.</strong> Infinity War is the best
-                        Avengers Movie.</label>
+                            <input type="text" class="validate" placeholder="Your Name Here" id="userName" data-error="Please enter your name"
+                                required="required" aria-required="true">
 
-                    <select class="form-control" id="q1">
-                        <option selected="selected" disabled>Select an option</option>
-                        <option>1 (strongly disagree)</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5 (strongly agree)</option>
-                    </select>
-                    <div class="form-control-feedback"></div>
-                </div>
+                        </div>
 
-                <div class="form-group py-3">
-                    <label for="q2" class="col-form-label"><strong>Question 3.</strong> Thanos is scary.</label>
+                        <div class="input-field col s10">
+                            <i class="material-icons">picture_in_picture</i>
+                            <h6 class="surveySays">Link to Photo Image (Required)</h6>
+                            <input type="text" class="validate" placeholder="Photo Link Here" id="userPhoto" data-error="Please enter image link"
+                                required="required" aria-required="true">
+                        </div>
+                        <!-- Survey Questions -->
+                        <div class="input-field col s10">
+                            <h4>Question 1</h4>
+                            <h6>I like a daredevil.</h6>
+                            <select id="question1">
+                                <option value=""></option>
+                                <option value="1">1 (Strongly Disagree)</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5 (Strongly Agree)</option>
+                            </select>
+                        </div>
 
-                    <select class="form-control" id="q2">
-                        <option selected="selected" disabled>Select an option</option>
-                        <option>1 (strongly disagree)</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5 (strongly agree)</option>
-                    </select>
-                    <div class="form-control-feedback"></div>
-                </div>
+                        <div class="input-field col s10">
+                            <h4>Question 2</h4>
+                            <h6>Stan Lee is a gifted writer</h6>
+                            <select id="question2">
+                                <option value=""></option>
+                                <option value="1">1 (Strongly Disagree)</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5 (Strongly Agree)</option>
+                                <label>Materialize Select</label>
+                            </select>
+                        </div>
 
-                <div class="form-group py-3">
-                    <label for="q3" class="col-form-label"><strong>Question 4.</strong> Dr.Strange has captured us in a
-                        timeline.</label>
+                        <div class="input-field col s10">
+                            <h4>Question 3</h4>
+                            <h6>Shwarma is awesome</h6>
+                            <select id="question3">
+                                <option value=""></option>
+                                <option value="1">1 (Strongly Disagree)</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5 (Strongly Agree)</option>
+                            </select>
+                        </div>
 
-                    <select class="form-control" id="q3">
-                        <option selected="selected" disabled>Select an option</option>
-                        <option>1 (strongly disagree)</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5 (strongly agree)</option>
-                    </select>
-                    <div class="form-control-feedback"></div>
-                </div>
+                        <div class="input-field col s10">
+                            <h4>Question 4</h4>
+                            <h6>Hulk is a good guy.</h6>
+                            <select id="question4">
+                                <option value=""></option>
+                                <option value="1">1 (Strongly Disagree)</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5 (Strongly Agree)</option>
+                            </select>
+                        </div>
 
-                <div class="form-group py-3">
-                    <label for="q4" class="col-form-label"><strong>Question 5.</strong> Captain America doesn't look
-                        good with his beard.</label>
+                        <div class="input-field col s10">
+                            <h4>Question 5</h4>
+                            <h6>Hawkeye ronin is bad.</h6>
+                            <select id="question5">
+                                <option value=""></option>
+                                <option value="1">1 (Strongly Disagree)</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5 (Strongly Agree)</option>
+                            </select>
+                        </div>
 
-                    <select class="form-control" id="q4">
-                        <option selected="selected" disabled>Select an option</option>
-                        <option>1 (strongly disagree)</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5 (strongly agree)</option>
-                    </select>
-                    <div class="form-control-feedback"></div>
-                </div>
+                        <div class="input-field col s10">
+                            <h4>Question 6</h4>
+                            <h6>Captain Marvel is the best.</h6>
+                            <select id="question6">
+                                <option value=""></option>
+                                <option value="1">1 (Strongly Disagree)</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5 (Strongly Agree)</option>
+                            </select>
+                        </div>
 
-                <div class="form-group py-3">
-                    <label for="q5" class="col-form-label"><strong>Question 6.</strong> Green World...Clean World.</label>
+                        <div class="input-field col s10">
+                            <h4>Question 7</h4>
+                            <h6>You like stopping everything and staring into your friend's eyes.</h6>
+                            <select id="question7">
+                                <option value=""></option>
+                                <option value="1">1 (Strongly Disagree)</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5 (Strongly Agree)</option>
+                            </select>
+                        </div>
 
-                    <select class="form-control" id="q5">
-                        <option selected="selected" disabled>Select an option</option>
-                        <option>1 (strongly disagree)</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5 (strongly agree)</option>
-                    </select>
-                    <div class="form-control-feedback"></div>
-                </div>
+                        <div class="input-field col s10">
+                            <h4>Question 8</h4>
+                            <h6>Avengers Infinity war is the best marvel film</h6>
+                            <select id="question8">
+                                <option value=""></option>
+                                <option value="1">1 (Strongly Disagree)</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5 (Strongly Agree)</option>
+                            </select>
+                        </div>
 
-                <div class="form-group py-3">
-                    <label for="q6" class="col-form-label"><strong>Question 7.</strong> Global Warming is destroying
-                        our climate.</label>
+                        <div class="input-field col s10">
+                            <h4>Question 9</h4>
+                            <h6>Hollywood would be a different industry without the marvel cinematic universe.</h6>
+                            <select id="question9">
+                                <option value=""></option>
+                                <option value="1">1 (Strongly Disagree)</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5 (Strongly Agree)</option>
+                            </select>
+                        </div>
 
-                    <select class="form-control" id="q6">
-                        <option selected="selected" disabled>Select an option</option>
-                        <option>1 (strongly disagree)</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5 (strongly agree)</option>
-                    </select>
-                    <div class="form-control-feedback"></div>
-                </div>
+                        <div class="input-field col s10">
+                            <h4>Question 10</h4>
+                            <h6>Hate DC comics.</h6>
+                            <select id="question10">
+                                <option value=""></option>
+                                <option value="1">1 (Strongly Disagree)</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5 (Strongly Agree)</option>
+                            </select>
+                        </div>
 
-                <div class="form-group py-3">
-                    <label for="q7" class="col-form-label"><strong>Question 8.</strong> I like someone who believes in
-                        sharing fate.</label>
-
-                    <select class="form-control" id="q7">
-                        <option selected="selected" disabled>Select an option</option>
-                        <option>1 (strongly disagree)</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5 (strongly agree)</option>
-                    </select>
-                    <div class="form-control-feedback"></div>
-                </div>
-
-                <div class="form-group py-3">
-                    <label for="q8" class="col-form-label"><strong>Question 9.</strong> Shwarma Joint is awesome.</label>
-
-                    <select class="form-control" id="q8">
-                        <option selected="selected" disabled>Select an option</option>
-                        <option>1 (strongly disagree)</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5 (strongly agree)</option>
-                    </select>
-                    <div class="form-control-feedback"></div>
-                </div>
-
-                <div class="form-group py-3">
-                    <label for="q9" class="col-form-label"><strong>Question 10.</strong> Stan Lee is a gifted writer.</label>
-
-                    <select class="form-control" id="q9">
-                        <option selected="selected" disabled>Select an option</option>
-                        <option>1 (strongly disagree)</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5 (strongly agree)</option>
-                    </select>
-                    <div class="form-control-feedback"></div>
-                </div>
-
-                <div class="text-center">
-                    <button type="submit" class="btn btn-dark mt-4 mb-3 px-5 pt-3" id="button_submit"><i class="fa fa-user-plus mr-3"
-                            aria-hidden="true"></i>Find my BFF!</button>
-                </div>
-            </form>
-        </div>
-
-        <div class="modal fade" id="modal_response">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h3 class="modal-title">Hi, <span id="my_name"></span>!</h3>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <p>Your new BFF is <strong><span id="friendName"></span></strong>.</p>
-                        <img class="img-thumbnail my-3" id="friend_photo" src=""></img>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <!-- Survey Submit Button -->
+                        <div>
+                            <button class="btn waves-effect red accent-2" type="submit" name="action" id="submitButton">Submit
+                                Responses
+                                <i class="material-icons right">send</i>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+    </main>
 
-        <footer>
-            <div class="float-left">
-                <a href="/api/friends">API Friends</a>
+    <footer class="page-footer blue accent-2">
+        <div class="container">
+            <div class="row">
+                <ul class="left hide-on-med-and-down">
+                    <a class="grey-text text-lighten-3" id="api-link" target="_blank" href="./home.html">Home</a>
+                </ul>
+                <ul class="center hide-on-med-and-down">
+                    <a class="grey-text text-lighten-3" id="api-link" target="_blank" href="/api/friends">API Friends
+                        List</a>
+                </ul>
+                <ul class="right hide-on-med-and-down">
+                    <a class="grey-text text-lighten-3" id="repo-link" target="_blank" href="https://github.com/swaroopreddyk/BuddyFinder">GitHub
+                        Repo</a>
+                </ul>
             </div>
-            <div class="float-right">
-                <p><i class="fa fa-copyright mr-2" aria-hidden="true"></i>Swaroop R Kondreddy</p>
+        </div>
+
+        <!-- Modal Dialog Displaying Closest Friend Match -->
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <h4>Closest Friend Match</h4>
+                <div class="divider"></div>
+                <h5 id="userMatch"></h5>
+                <img id="userMatchImage" class="materialboxed" width="650" src="">
             </div>
-        </footer>
-    </div>
-    <!-- javascript -->
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-        crossorigin="anonymous"></script>
-    <script type="text/javascript" src="assets/javascript/app.js"></script>
+            <div class="modal-footer">
+                <a href="/survey" class="modal-action modal-close waves-effect waves-green btn-flat">Return</a>
+            </div>
+        </div>
+        <!-- javascript -->
+        <!-- <script type="text/javascript" src="./assets/javascript/app.js"></script> -->
+        <script type="text/javascript">
+            // Or with jQuery
+            $(document).ready(function () {
+                $('select').formSelect();
+            });
+            $(document).ready(function () {
+                $('select').formSelect();
+                $('.modal').modal({
+                    dismissible: false, // Modal can be dismissed by clicking outside of the modal
+                    opacity: .5, // Opacity of modal background
+                    inDuration: 300, // Transition in duration
+                    outDuration: 200, // Transition out duration
+                    startingTop: '4%', // Starting top style attribute
+                    endingTop: '10%' // Ending top style attribute
+                });
+            });
+            // Activate submit button
+            $('#submitButton').on('click', function (event) {
+                event.preventDefault();
+                var valid = true;
+                if ($("#userName").val() === "" || $("#userPhoto").val() === "") {
+                    valid = false;
+                } else if ($("#question1").val() === "" || $("#question2").val() === "" || $("#question3")
+                    .val() === "" || $("#question4").val() === "" || $("#question5").val() === "" ||
+                    $("#question6").val() === "" || $("#question7").val() === "" || $("#question8").val() ===
+                    "" || $("#question9").val() === "" || $("#question10").val() === "") {
+                    valid = false;
+                }
+                if (valid === true) {
+                    var userInput = {
+                        name: $('#userName').val().trim(),
+                        photo: $('#userPhoto').val().trim(),
+                        scores: [
+                            $('#question1').val(),
+                            $('#question2').val(),
+                            $('#question3').val(),
+                            $('#question4').val(),
+                            $('#question5').val(),
+                            $('#question6').val(),
+                            $('#question7').val(),
+                            $('#question8').val(),
+                            $('#question9').val(),
+                            $('#question10').val()
+                        ]
+                    };
+                    var currentURL = window.location.origin;
+
+                    // Add user inputs to friends list
+                    $.post(currentURL + '/api/friends', userInput, function (data) {
+
+                        // Set the name and image values of friend match
+                        $('#userMatch').html(data.matchName);
+                        $("#userMatchImage").attr("src", data.matchImage);
+                        // Pop open the modal dialog
+                        $('#modal1').modal('open');
+                    });
+                } else {
+                    M.toast({
+                        html: 'Sorry. You must enter all fields to find your BFF!',
+                        classes: 'toasted'
+                    })
+                }
+            });
+        </script>
 </body>
 
 </html>

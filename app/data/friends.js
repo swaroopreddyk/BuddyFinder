@@ -1,6 +1,4 @@
-"use strict";
-
-exports.friends = [{
+const friendsArray = [{
         name: "Iron Man",
         photo: "https://bit.ly/2rMvMVz",
         scores: [4, 4, 2, 3, 5, 4, 5, 2, 1, 3]
@@ -31,3 +29,5 @@ exports.friends = [{
         scores: [1, 3, 4, 4, 3, 5, 1, 2, 5, 4]
     }
 ]
+
+module.exports = friendsArray;
