@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/swaroopreddyk/BuddyFinder/issues"
   },
-  "homepage": "https://github.com/swaroopreddyk/BuddyFinder#readme"
+  "homepage": "https://github.com/swaroopreddyk/BuddyFinder#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
 }

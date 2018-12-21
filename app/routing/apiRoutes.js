@@ -1,40 +1,44 @@
 const friends = require("../data/friends");
 const path = require('path');
 
+module.exports = (app) => {
 
-module.exports = function (app) {
-  app.get("/friends", (req, res) => {
-    res.send(friends);
-  })
+  app.get('/api/friends', (req, res) => {
+    res.json(friends);
+  });
 
-  app.post("/friends", (req, res) => {
-    const profile = {
-      "name"     : req.body.name,
-      "answers"  : req.body.answers.map(a => parseInt(a))
-  };
+  // Add new friend entry
+  app.post('/api/friends', (req, res) => {
+    let input = req.body;
 
-  const friend = findBestFriend(profile);
+    let responses = input.scores;
 
-  res.send({
-    "my_name"         : profile.name,
-    "friend_name"     : friend.name,
-    "friend_photo_url": friend.photo_url
-});
-  })
+    // Compute bff match
+    let matchName = '';
+    let matchImage = '';
+    let difference = 10000; // Make the initial value large for comparison
 
-  const findBestFriend = profile => {
-    friends.sort((a, b) => findDifference(a, profile) - findDifference(b, profile));
+    for (var i in friends) {
 
-        return friends[0];
-  }
+      let diff = 0;
+      for (var j in responses) {
+        diff += Math.abs(friends[i].scores[j] - responses[j]);
+      }
 
-  const findDifference = (a, b) =>{
-    let score = 0;
+      if (diff < difference) {
 
-    for (let i = 0; i < a.answers.length; i++) {
-        score += Math.abs(b.answers[i] - a.answers[i]);
+        difference = diff;
+        matchName = friends[i].name;
+        matchImage = friends[i].photo;
+      }
     }
 
-    return score;
-}
-}
+    friends.push(input);
+
+    res.json({
+      status: 'OK',
+      matchName: matchName,
+      matchImage: matchImage
+    });
+  });
+};
