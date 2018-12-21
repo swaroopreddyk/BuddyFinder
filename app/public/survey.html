@@ -220,10 +220,10 @@
         <!-- Modal Dialog Displaying Closest Friend Match -->
         <div id="modal1" class="modal">
             <div class="modal-content">
-                <h4>Closest Friend Match</h4>
+                <h4 class="teal">Closest Friend Match</h4>
                 <div class="divider"></div>
-                <h5 id="userMatch"></h5>
-                <img id="userMatchImage" class="materialboxed" width="650" src="">
+                <h5 id="friend" class="blue-text darken-2"></h5>
+                <img id="friendImage" class="materialboxed" width="650" src="">
             </div>
             <div class="modal-footer">
                 <a href="/survey" class="modal-action modal-close waves-effect waves-green btn-flat">Return</a>
@@ -282,8 +282,8 @@
                     $.post(currentURL + '/api/friends', userInput, function (data) {
 
                         // Set the name and image values of friend match
-                        $('#userMatch').html(data.matchName);
-                        $("#userMatchImage").attr("src", data.matchImage);
+                        $('#friend').html(data.matchName);
+                        $("#friendImage").attr("src", data.matchImage);
                         // Pop open the modal dialog
                         $('#modal1').modal('open');
                     });
